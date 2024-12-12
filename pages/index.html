@@ -14,27 +14,32 @@
         <form class="form-cadastro-usuario">
             <div class="form-item">
                 <label>Nome</label>
-                <input type="text" class="name-input form-input">
+                <input type="text" class="name-input form-input" required>
             </div>
             <div class="form-item">
                 <label>CPF</label>
-                <input type="text" class="cpf-input form-input">
+                <input type="text" class="cpf-input form-input" required>
             </div>
             <div class="form-item">
                 <label>Data de Nascimento</label>
-                <input type="date" class="date-input form-input">
+                <input type="date" class="date-input form-input" required>
             </div>
             <div class="form-item">
                 <label>Endereço</label>
-                <input type="text" class="adress-input form-input">
+                <input type="text" class="adress-input form-input" required>
             </div>
             <div class="action-buttons">
                 <button class="cadastrar-usuario-btn">Cadastrar</button>
-                <button>Exibir Contatos</button>
+                <button class="exibir-contatos" type="button">Exibir Contatos</button>
                 <button>Buscar Contato</button>
                 <button>Remover Contato</button>
             </div>
         </form>
     </main>
+
+    <div class="contatos-container">
+        
+    </div>
+    
 </body>
 </html>
