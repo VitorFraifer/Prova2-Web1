@@ -59,3 +59,57 @@ h1{
     color: blue;
     margin-bottom: 1vh;
 }
+
+.modal-input-cpf-container{
+    width: 100vw;
+    height: 110vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    margin-top: -13vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-input-cpf{
+    width: 30vw;
+    height: 40vh;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    box-sizing: border-box;
+}
+
+.fechar-modal-remover, .fechar-modal-buscar{
+    align-self: flex-end;
+    background: none;
+    color: black;
+    border: none;
+    font-weight: bolder;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.form-cpf-modal-input{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.form-cpf-modal-input button{
+    margin-top: 4vh;
+    width: 50%;
+    align-self: center;
+    border: none;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 0.5vw;
+    color: white;
+    cursor: pointer;
+}

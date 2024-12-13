@@ -39,6 +39,9 @@ function cadastrarUsuario(){
 }
 
 function exibirContatos(){
+
+    exibirContatosContainer.innerHTML = ""; //Limpando container para que não haja duplicação dos mesmos cards
+
     nomeUsuarios.forEach((item, index) => {
         const card = criarCardContato(nomeUsuarios, cpfUsuarios, nascimentoUsuarios, enderecoUsuarios, index)
         exibirContatosContainer.appendChild(card);
@@ -72,7 +75,23 @@ function criarCardContato(nomeUsuarios, cpfUsuarios, nascimentoUsuarios, enderec
     return card;
 }
 
-function excluirContato(cpf){
+//Excluindo Usuário:
+const btnRemoverCpf = document.querySelector("#btnremovercpf");
+btnRemoverCpf.addEventListener("click", () => {
+    excluirDadosContato(captarCpfParaRemover());
+    alert("Usuário Removido");
+    modalContainerRemover.style.display = "none";
+
+})
+
+//Função para captar o cpf digitado no modal
+function captarCpfParaRemover(){
+    const inputRemoverCpf = document.querySelector(".inputCpfRemover");
+    return inputRemoverCpf.value;
+}
+
+//Função para excluir os dados daquele CPF
+function excluirDadosContato(cpf){
     cpfUsuarios.forEach((cpfitem, index) => {
         if(cpfitem == cpf){
             cpfUsuarios.splice(index, 1);
@@ -83,8 +102,39 @@ function excluirContato(cpf){
     })
 }
 
+//Função para limpar os inputs após 'submit' do formulário
 function limparInputs(){
     formInputs.forEach((input) => {
         input.value = "";
     })
 }
+
+
+//MODAL:
+
+//Fechar Modal:
+
+const btnFecharModalBuscar = document.querySelector(".fechar-modal-buscar");
+const btnFecharModalRemover = document.querySelector(".fechar-modal-remover");
+const modalContainerBuscar = document.querySelector("#modalBuscar");
+const modalContainerRemover = document.querySelector("#modalRemover");
+
+btnFecharModalBuscar.addEventListener("click", () => {
+    modalContainerBuscar.style.display = "none";
+})
+
+btnFecharModalRemover.addEventListener("click", () => {
+    modalContainerRemover.style.display = "none";
+})
+
+//Abrir Modal:
+const btnBuscarUsuario = document.querySelector(".btn-buscar-contato");
+const btnRemoverUsuario = document.querySelector(".btn-remover-contato");
+
+btnBuscarUsuario.addEventListener("click", () => {
+    modalContainerBuscar.style.display = "flex";
+})
+
+btnRemoverUsuario.addEventListener("click", () => {
+    modalContainerRemover.style.display = "flex";
+})

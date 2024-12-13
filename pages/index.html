@@ -31,14 +31,38 @@
             <div class="action-buttons">
                 <button class="cadastrar-usuario-btn">Cadastrar</button>
                 <button class="exibir-contatos" type="button">Exibir Contatos</button>
-                <button>Buscar Contato</button>
-                <button>Remover Contato</button>
+                <button class="btn-buscar-contato" type="button">Buscar Contato</button>
+                <button class="btn-remover-contato" type="button">Remover Contato</button>
             </div>
         </form>
     </main>
 
     <div class="contatos-container">
         
+    </div>
+
+    <div class="modal-input-cpf-container" id="modalBuscar">
+        <div class="modal-input-cpf">
+            <button class="fechar-modal-buscar">X</button>
+            <h3>Insira o CPF do Contato</h3>
+            <form class="form-cpf-modal-input">
+                <label>CPF:</label>
+                <input type="text">
+                <button type="button" id="btnbuscarcpf">Enviar</button>
+            </form>  
+        </div>
+    </div>
+    
+    <div class="modal-input-cpf-container" id="modalRemover">
+        <div class="modal-input-cpf">
+            <button class="fechar-modal-remover">X</button>
+            <h3>Insira o CPF do Contato</h3>
+            <form class="form-cpf-modal-input">
+                <label>CPF:</label>
+                <input type="text" class="inputCpfRemover">
+                <button type="button" id="btnremovercpf">Enviar</button>
+            </form>  
+        </div>
     </div>
     
 </body>
