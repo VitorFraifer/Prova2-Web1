@@ -21,26 +21,56 @@ btnCadastrarUsuario.addEventListener("click", (event) => {
 btnExibirUsuario.addEventListener("click", exibirContatos);
 
 function cadastrarUsuario(){
-    formInputs.forEach((input) => {
-        if(input.classList.contains("name-input")){
-            console.log(input.value);
-            nomeUsuarios.push(input.value);
-        }
-        if(input.classList.contains("cpf-input")){
-            console.log(input.value);
-            cpfUsuarios.push(input.value);
-        }
-        if(input.classList.contains("date-input")){
-            console.log(input.value);
-            nascimentoUsuarios.push(input.value);  
-        }
-        if(input.classList.contains("adress-input")){
-            console.log(input.value);
-            enderecoUsuarios.push(input.value);
-        }
-    })
-    alert("Usuário Cadastrado com Sucesso")
+    const inputCPF = document.querySelector(".cpf-input");
+    if(cpfUsuarios.includes(inputCPF.value)){
+        alert("CPF já cadastrado");
+        return 0;
+    }
+    else{
+        formInputs.forEach((input) => {
+            if(input.classList.contains("name-input")){
+                console.log(input.value);
+                nomeUsuarios.push(input.value);
+            }
+            if(input.classList.contains("cpf-input")){
+                console.log(input.value);
+                cpfUsuarios.push(input.value);
+            }
+            if(input.classList.contains("date-input")){
+                console.log(input.value);
+                nascimentoUsuarios.push(input.value);  
+            }
+            if(input.classList.contains("adress-input")){
+                console.log(input.value);
+                enderecoUsuarios.push(input.value);
+            }
+            
+        })
+        alert("Usuário Cadastrado com Sucesso")
+    }
 }
+
+// function cadastrarUsuario(){
+//     formInputs.forEach((input) => {
+//         if(input.classList.contains("name-input")){
+//             console.log(input.value);
+//             nomeUsuarios.push(input.value);
+//         }
+//         if(input.classList.contains("cpf-input")){
+//             console.log(input.value);
+//             cpfUsuarios.push(input.value);
+//         }
+//         if(input.classList.contains("date-input")){
+//             console.log(input.value);
+//             nascimentoUsuarios.push(input.value);  
+//         }
+//         if(input.classList.contains("adress-input")){
+//             console.log(input.value);
+//             enderecoUsuarios.push(input.value);
+//         }
+//     })
+//     alert("Usuário Cadastrado com Sucesso")
+// }
 
 //Exibir Contatos
 function exibirContatos(){
@@ -122,6 +152,7 @@ function captarCpfParaBuscar(){
 }
 
 function buscarDadosContato(cpf){
+    let cpfEncontrado = 0;
     cpfUsuarios.forEach((cpfitem, index) => {
         if(cpfitem == cpf){
             alert(
@@ -130,17 +161,28 @@ function buscarDadosContato(cpf){
                 "Nascimento: " + nascimentoUsuarios[index] + "\n" +
                 "Endereço: " + enderecoUsuarios[index]
             );
+            cpfEncontrado = 1;
         }
     })
+    if(cpfEncontrado == 0){
+        alert("CPF não Encontrado");
+    }
 }
 
 const btnBuscarCpf = document.querySelector("#btnbuscarcpf");
 btnBuscarCpf.addEventListener("click", () => {
    buscarDadosContato(captarCpfParaBuscar());
-    // alert("Dados exibidos no console");
     modalContainerBuscar.style.display = "none";
 
 })
+
+//Função para verificar se o CPF que deseja ser cadastrado já existe
+
+function verificarDuplicidadeCpf(cpf){
+    if(cpfUsuarios.includes(cpf)){
+        console.log("CPF já cadastrado")
+    }
+}
 
 
 //MODAL:

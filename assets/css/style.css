@@ -69,6 +69,7 @@ h1{
     display: none;
     align-items: center;
     justify-content: center;
+    position: fixed;
 }
 
 .modal-input-cpf{
