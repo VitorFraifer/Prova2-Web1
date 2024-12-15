@@ -9,6 +9,9 @@ const cpfUsuarios = [];
 const nascimentoUsuarios = [];
 const enderecoUsuarios = [];
 
+
+//Cadastro de Usuário
+
 btnCadastrarUsuario.addEventListener("click", (event) => {
     event.preventDefault();
     cadastrarUsuario();
@@ -36,8 +39,10 @@ function cadastrarUsuario(){
             enderecoUsuarios.push(input.value);
         }
     })
+    alert("Usuário Cadastrado com Sucesso")
 }
 
+//Exibir Contatos
 function exibirContatos(){
 
     exibirContatosContainer.innerHTML = ""; //Limpando container para que não haja duplicação dos mesmos cards
@@ -81,6 +86,7 @@ btnRemoverCpf.addEventListener("click", () => {
     excluirDadosContato(captarCpfParaRemover());
     alert("Usuário Removido");
     modalContainerRemover.style.display = "none";
+    exibirContatos();
 
 })
 
@@ -108,6 +114,33 @@ function limparInputs(){
         input.value = "";
     })
 }
+
+//Buscar Contato
+function captarCpfParaBuscar(){
+    const inputBuscarCpf = document.querySelector(".inputCpfBuscar");
+    return inputBuscarCpf.value;
+}
+
+function buscarDadosContato(cpf){
+    cpfUsuarios.forEach((cpfitem, index) => {
+        if(cpfitem == cpf){
+            alert(
+                "Nome: " + nomeUsuarios[index] + "\n" +
+                "CPF: " + cpfUsuarios[index] + "\n" +
+                "Nascimento: " + nascimentoUsuarios[index] + "\n" +
+                "Endereço: " + enderecoUsuarios[index]
+            );
+        }
+    })
+}
+
+const btnBuscarCpf = document.querySelector("#btnbuscarcpf");
+btnBuscarCpf.addEventListener("click", () => {
+   buscarDadosContato(captarCpfParaBuscar());
+    // alert("Dados exibidos no console");
+    modalContainerBuscar.style.display = "none";
+
+})
 
 
 //MODAL:
