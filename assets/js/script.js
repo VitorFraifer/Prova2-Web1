@@ -50,28 +50,6 @@ function cadastrarUsuario(){
     }
 }
 
-// function cadastrarUsuario(){
-//     formInputs.forEach((input) => {
-//         if(input.classList.contains("name-input")){
-//             console.log(input.value);
-//             nomeUsuarios.push(input.value);
-//         }
-//         if(input.classList.contains("cpf-input")){
-//             console.log(input.value);
-//             cpfUsuarios.push(input.value);
-//         }
-//         if(input.classList.contains("date-input")){
-//             console.log(input.value);
-//             nascimentoUsuarios.push(input.value);  
-//         }
-//         if(input.classList.contains("adress-input")){
-//             console.log(input.value);
-//             enderecoUsuarios.push(input.value);
-//         }
-//     })
-//     alert("Usuário Cadastrado com Sucesso")
-// }
-
 //Exibir Contatos
 function exibirContatos(){
 
@@ -175,14 +153,6 @@ btnBuscarCpf.addEventListener("click", () => {
     modalContainerBuscar.style.display = "none";
 
 })
-
-//Função para verificar se o CPF que deseja ser cadastrado já existe
-
-function verificarDuplicidadeCpf(cpf){
-    if(cpfUsuarios.includes(cpf)){
-        console.log("CPF já cadastrado")
-    }
-}
 
 
 //MODAL:
